@@ -3,9 +3,9 @@ import { View } from "react-native";
 import { Card, Button, FormLabel, FormInput } from "react-native-elements";
 import { onSignIn } from "../auth";
 
-export default () => (
+export default ({ navigation }) => (
   <View style={{ paddingVertical: 20 }}>
-    <Card title="SIGN UP">
+    <Card>
       <FormLabel>Email</FormLabel>
       <FormInput placeholder="Email address..." />
       <FormLabel>Password</FormLabel>
@@ -24,7 +24,7 @@ export default () => (
         backgroundColor="transparent"
         textStyle={{ color: "#bcbec1" }}
         title="Sign In"
-        onPress={() => alert("go to sign in screen")}
+        onPress={() => navigation.navigate("SignIn")}
       />
     </Card>
   </View>

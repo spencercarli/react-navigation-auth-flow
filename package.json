@@ -23,6 +23,6 @@
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
     "react-native-elements": "^0.12.2",
-    "react-navigation": "^1.0.0-beta.9"
+    "react-navigation": "1.0.0-beta.9"
   }
 }
