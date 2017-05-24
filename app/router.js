@@ -42,3 +42,22 @@ export const SignedIn = TabNavigator({
     }
   }
 });
+
+export const createRootNavigator = (signedIn = false) => {
+  return StackNavigator(
+    {
+      SignedIn: {
+        screen: SignedIn
+      },
+      SignedOut: {
+        screen: SignedOut
+      }
+    },
+    {
+      headerMode: "none",
+      mode: "modal",
+      gesturesEnabled: false,
+      initialRouteName: signedIn ? "SignedIn" : "SignedOut"
+    }
+  );
+};

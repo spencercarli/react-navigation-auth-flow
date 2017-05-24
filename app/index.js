@@ -1,5 +1,5 @@
 import React from "react";
-import { SignedOut, SignedIn } from "./router";
+import { createRootNavigator } from "./router";
 import { isSignedIn } from "./auth";
 
 export default class App extends React.Component {
@@ -11,6 +11,7 @@ export default class App extends React.Component {
       checkedSignIn: false
     };
   }
+
   componentWillMount() {
     isSignedIn()
       .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
@@ -25,10 +26,7 @@ export default class App extends React.Component {
       return null;
     }
 
-    if (signedIn) {
-      return <SignedIn />;
-    } else {
-      return <SignedOut />;
-    }
+    const Layout = createRootNavigator(signedIn);
+    return <Layout />;
   }
 }
