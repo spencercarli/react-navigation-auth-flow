@@ -47,16 +47,21 @@ export const createRootNavigator = (signedIn = false) => {
   return StackNavigator(
     {
       SignedIn: {
-        screen: SignedIn
+        screen: SignedIn,
+        navigationOptions: {
+          gesturesEnabled: false
+        }
       },
       SignedOut: {
-        screen: SignedOut
+        screen: SignedOut,
+        navigationOptions: {
+          gesturesEnabled: false
+        }
       }
     },
     {
       headerMode: "none",
       mode: "modal",
-      gesturesEnabled: false,
       initialRouteName: signedIn ? "SignedIn" : "SignedOut"
     }
   );
