@@ -67,21 +67,13 @@ export const createRootNavigator = (signedIn = false) => {
   return SwitchNavigator(
     {
       SignedIn: {
-        screen: SignedIn,
-        navigationOptions: {
-          gesturesEnabled: false
-        }
+        screen: SignedIn
       },
       SignedOut: {
-        screen: SignedOut,
-        navigationOptions: {
-          gesturesEnabled: false
-        }
+        screen: SignedOut
       }
     },
     {
-      headerMode: "none",
-      mode: "modal",
       initialRouteName: signedIn ? "SignedIn" : "SignedOut"
     }
   );
