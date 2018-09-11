@@ -16,7 +16,7 @@ const headerStyle = {
   marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
 };
 
-export const SignedOut = StackNavigator({
+export const SignedOut = createStackNavigator({
   SignUp: {
     screen: SignUp,
     navigationOptions: {
@@ -33,7 +33,7 @@ export const SignedOut = StackNavigator({
   }
 });
 
-export const SignedIn = TabNavigator(
+export const SignedIn = createBottomTabNavigator(
   {
     Home: {
       screen: Home,
@@ -47,7 +47,7 @@ export const SignedIn = TabNavigator(
     Profile: {
       screen: Profile,
       navigationOptions: {
-        tabBarLabel: "Profile",
+        tabBarLabel: "Profile", 
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="user" size={30} color={tintColor} />
         )
@@ -64,7 +64,7 @@ export const SignedIn = TabNavigator(
 );
 
 export const createRootNavigator = (signedIn = false) => {
-  return SwitchNavigator(
+  return createSwitchNavigator(
     {
       SignedIn: {
         screen: SignedIn
