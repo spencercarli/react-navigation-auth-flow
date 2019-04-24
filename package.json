@@ -14,10 +14,10 @@
     "ios": "react-native-scripts ios"
   },
   "dependencies": {
-    "expo": "^25.0.0",
-    "react": "16.2.0",
-    "react-native": "^0.52.0",
+    "expo": "^27.0.0",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-elements": "^0.19.0",
-    "react-navigation": "^1.5.8"
+    "react-navigation": "1.5.11"
   }
 }
