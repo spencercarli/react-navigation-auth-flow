@@ -1,10 +1,6 @@
 import React from "react";
 import { Platform, StatusBar } from "react-native";
-import {
-  StackNavigator,
-  TabNavigator,
-  SwitchNavigator
-} from "react-navigation";
+import { createSwitchNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 import { FontAwesome } from "react-native-vector-icons";
 
 import SignUp from "./screens/SignUp";
@@ -64,7 +60,7 @@ export const SignedIn = createBottomTabNavigator(
 );
 
 export const createRootNavigator = (signedIn = false) => {
-  return createSwitchNavigator(
+  return createAppContainer(createSwitchNavigator(
     {
       SignedIn: {
         screen: SignedIn
@@ -76,5 +72,5 @@ export const createRootNavigator = (signedIn = false) => {
     {
       initialRouteName: signedIn ? "SignedIn" : "SignedOut"
     }
-  );
+  ));
 };
