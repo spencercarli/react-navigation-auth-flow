@@ -1,10 +1,12 @@
 import React from "react";
 import { Platform, StatusBar } from "react-native";
 import {
-  StackNavigator,
-  TabNavigator,
-  SwitchNavigator
-} from "react-navigation";
+  createStackNavigator,
+  createBottomTabNavigator,
+  createSwitchNavigator,
+  createAppContainer
+} from 'react-navigation';
+
 import { FontAwesome } from "react-native-vector-icons";
 
 import SignUp from "./screens/SignUp";
@@ -47,7 +49,7 @@ export const SignedIn = createBottomTabNavigator(
     Profile: {
       screen: Profile,
       navigationOptions: {
-        tabBarLabel: "Profile", 
+        tabBarLabel: "Profile",
         tabBarIcon: ({ tintColor }) => (
           <FontAwesome name="user" size={30} color={tintColor} />
         )
@@ -64,7 +66,7 @@ export const SignedIn = createBottomTabNavigator(
 );
 
 export const createRootNavigator = (signedIn = false) => {
-  return createSwitchNavigator(
+  return createAppContainer(createSwitchNavigator(
     {
       SignedIn: {
         screen: SignedIn
@@ -76,5 +78,5 @@ export const createRootNavigator = (signedIn = false) => {
     {
       initialRouteName: signedIn ? "SignedIn" : "SignedOut"
     }
-  );
+  ));
 };
